@@ -1,1 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIT Python Learning Tool</title>
+    
+    <link rel="stylesheet" href="style.css">
 
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+</head>
+<body>
+
+    <div class="main-card">
+        <h1>Learning Dashboard</h1>
+        <p>A tool for tracking SIT Python group assignments and field data.</p>
+
+        <div class="feature-box">
+            <h3>Saved Project Data</h3>
+            <p>Target Water Elevation: <strong>2699</strong></p>
+        </div>
+
+        <div class="feature-box">
+            <h3>Interactive Python Tool</h3>
+            <p>Enter a number and click the button to double it using Python logic:</p>
+            
+            <input type="number" id="user_num" placeholder="Enter a number...">
+            <button py-click="process_data">Calculate with Python</button>
+            
+            <p id="display_area" style="margin-top: 15px; color: #1a73e8; font-weight: bold;">
+                Waiting for input...
+            </p>
+        </div>
+
+        <div class="feature-box">
+            <h3>Quick Links</h3>
+            <p><a href="https://github.com/Mekdes732/Python-II" target="_blank">View Project Repository</a></p>
+        </div>
+    </div>
+
+    <script type="py">
+        from pyscript import document
+
+        def process_data(event):
+            # Grab the element where the user typed the number
+            input_element = document.querySelector("#user_num")
+            user_value = input_element.value
+            
+            # Check if the input is not empty
+            if user_value:
+                # Perform Python math
+                result = int(user_value) * 2
+                
+                # Find the display area and update the text
+                output_element = document.querySelector("#display_area")
+                output_element.innerText = f"Python Result: {result}"
+    </script>
+
+</body>
+</html>
