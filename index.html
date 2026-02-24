@@ -39,22 +39,8 @@
         </div>
     </div>
 
-    <script type="py">
-        from pyscript import document
-
-        def process_data(event):
-            # Grab the element where the user typed the number
-            input_element = document.querySelector("#user_num")
-            user_value = input_element.value
-            
-            # Check if the input is not empty
-            if user_value:
-                # Perform Python math
-                result = int(user_value) * 2
-                
-                # Find the display area and update the text
-                output_element = document.querySelector("#display_area")
-                output_element.innerText = f"Python Result: {result}"
+    <script type="py" src="main.py" config="./pyscript.json">
+        
     </script>
 
 </body>
