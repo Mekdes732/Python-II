@@ -3,49 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIT Python Learning Tool</title>
+    <title>SIT Python LearnHub</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <link rel="stylesheet" href="style.css">
-    <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 </head>
-<body>
+<body class="bg-light" style="font-family: 'Inter', sans-serif;">
 
-    <div class="main-card">
-        <h1>Learning Dashboard</h1>
-        <p>A tool for tracking SIT Python group assignments and field data.</p>
-
-        <div class="feature-box">
-            <h3>Saved Project Data</h3>
-            <p>Target Water Elevation: <strong>2699</strong></p>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><i class="bi bi-terminal-fill me-2"></i>SIT LearnHub</a>
+            <div class="d-flex">
+                <button class="btn btn-outline-light btn-sm me-2">Sign In</button>
+                <button class="btn btn-primary btn-sm">Sign Up</button>
+            </div>
         </div>
+    </nav>
 
-        <div class="feature-box">
-            <h3>Interactive Python Tool</h3>
-            <p>Enter a number and click the button to double it using Python logic:</p>
+    <header class="bg-white border-bottom py-5 mb-5 text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold text-primary">Python Mastery Tool</h1>
+            <p class="lead text-muted">Field Data Analysis & Interactive Learning</p>
+            <span class="badge rounded-pill bg-info text-dark">Current Elevation: 2699m</span>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="row g-4">
             
-            <input type="number" id="user_num" placeholder="Enter a number...">
-            <button py-click="process_data">Calculate with Python</button>
-            
-            <p id="display_area" style="margin-top: 15px; color: #1a73e8; font-weight: bold;">
-                Waiting for input...
-            </p>
+            <div class="col-lg-8">
+                
+                <section class="mb-5">
+                    <h3 class="mb-4"><i class="bi bi-layers-half me-2"></i>Study Flashcards</h3>
+                    <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                            <div class="card h-100 shadow-sm flashcard text-center p-4">
+                                <div class="card-body">
+                                    <h5 class="text-muted small uppercase">Python Syntax</h5>
+                                    <p class="card-text fw-bold">How do you define a function?</p>
+                                    <button class="btn btn-sm btn-link">Show Answer</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 shadow-sm flashcard text-center p-4 border-primary">
+                                <div class="card-body">
+                                    <h5 class="text-muted small uppercase">Elevation Data</h5>
+                                    <p class="card-text fw-bold">Target Water Level?</p>
+                                    <p class="text-primary fw-bold">2699</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card shadow border-0 mb-5">
+                    <div class="card-header bg-primary text-white p-3">
+                        <h5 class="mb-0">Interactive Calculator</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <label class="form-label">Input Value for Doubling</label>
+                        <div class="input-group mb-3">
+                            <input type="number" id="user_num" class="form-control form-control-lg" placeholder="e.g. 50">
+                            <button class="btn btn-primary px-4" py-click="process_data">Run Python</button>
+                        </div>
+                        <div id="display_area" class="p-3 bg-light rounded border text-center fw-bold">
+                            Result will appear here...
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5>Project Progress</h5>
+                        <div class="progress mt-3" style="height: 10px;">
+                            <div class="progress-bar bg-success" style="width: 65%"></div>
+                        </div>
+                        <p class="small text-muted mt-2">65% of assignments complete</p>
+                    </div>
+                </div>
+
+                <div class="list-group shadow-sm">
+                    <a href="#" class="list-group-item list-group-item-action active">Quick Links</a>
+                    <a href="https://github.com/Mekdes732/Python-II" class="list-group-item list-group-item-action">GitHub Repository</a>
+                    <a href="#" class="list-group-item list-group-item-action">SIT Field Docs</a>
+                </div>
+            </div>
         </div>
-        <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </main>
 
-        <div class="feature-box">
-            <h3>Quick Links</h3>
-            <p><a href="https://github.com/Mekdes732/Python-II" target="_blank">View Project Repository</a></p>
-        </div>
-    </div>
+    <footer class="py-4 mt-5 bg-white border-top text-center">
+        <p class="text-muted small">&copy; 2026 SIT Python Learning Tool. Built with PyScript & Bootstrap.</p>
+    </footer>
 
-    <script type="py" src="main.py" config="./pyscript.json">
-        
-    </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="py" src="main.py" config="./pyscript.json"></script>
 </body>
 </html>
