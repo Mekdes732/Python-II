@@ -1,43 +1,66 @@
-/* This sets the background and the text style for the whole page */
-body { 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    background-color: #f0f2f5; 
-    display: flex;
-    justify-content: center;
-    padding: 40px;
+/* 1. TYPOGRAPHY & SMOOTHING */
+body {
+    background-color: #f4f7f9; /* Soft blue-grey background */
+    color: #333;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* This is the white 'box' that holds your content */
-.main-card {
-    background: white;
-    width: 100%;
-    max-width: 600px;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Adds a soft shadow */
+/* 2. THE CUSTOM "SIT" BLUE COLORS */
+:root {
+    --sit-blue: #1a73e8;
+    --sit-dark: #1557b0;
 }
 
-/* Styles for your headings */
-h1 { color: #1a73e8; margin-top: 0; }
-
-/* Styles for the interactive 'Feature' boxes */
-.feature-box {
-    background: #f8f9fa;
-    border-left: 5px solid #1a73e8; /* Blue line on the left */
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 5px;
-}
-
-/* Styles for the button */
-button {
-    background-color: #1a73e8;
-    color: white;
+/* 3. FLASHCARD HOVER EFFECTS */
+/* This makes the learning tool feel interactive */
+.flashcard {
+    transition: all 0.3s ease;
     border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
+    border-radius: 15px;
     cursor: pointer;
-    font-weight: bold;
 }
 
-button:hover { background-color: #1557b0; } /* Darkens when you hover */
+.flashcard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(26, 115, 232, 0.15) !important;
+    border-bottom: 4px solid var(--sit-blue);
+}
+
+/* 4. THE SIGNATURE SIDE-BORDER (From your original design) */
+/* We apply this to a custom Bootstrap class */
+.feature-box-custom {
+    background: white;
+    border-left: 5px solid var(--sit-blue);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* 5. CUSTOM BUTTON GLOW */
+.btn-primary {
+    background-color: var(--sit-blue);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--sit-dark);
+    box-shadow: 0 5px 15px rgba(26, 115, 232, 0.4);
+}
+
+/* 6. PYSCRIPT OUTPUT STYLING */
+/* Makes your Python results look like a terminal */
+#display_area {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #eef2f7;
+    border: 1px solid #d1d9e6;
+    color: var(--sit-dark);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+   
