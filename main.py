@@ -1,23 +1,28 @@
 from pyscript import document
 
-def process_data(event):
-    # 1. Look for the input box in the HTML
-    input_element = document.querySelector("#user_num")
-    user_value = input_element.value
+def check_login(event):
+    # Grab inputs
+    username = document.querySelector("#login_user").value
+    password = document.querySelector("#login_pass").value
     
-    # 2. Check if the user actually typed a number
-    if user_value:
-        # Convert text to a whole number (integer)
-        number = int(user_value)
-        
-        # Perform your logic (let's double the number)
-        result = number * 2
-        
-        # 3. Find the display area in HTML to show the answer
-        output_element = document.querySelector("#display_area")
-        output_element.innerText = f"Python calculated: {result}"
+    # Error message element
+    error_msg = document.querySelector("#login_error")
+    
+    # Logic: Check if username is 'admin' and password is the elevation '2699'
+    if username == "admin" and password == "2699":
+        # Hide the Modal
+        document.querySelector("#loginModal").style.display = "none"
+        # Show the Dashboard
+        document.querySelector("#main_content").style.display = "block"
+        print("Access Granted")
     else:
-        # If the box is empty, show a warning
-        document.querySelector("#display_area").innerText = "Please enter a number first!"
+        # Show error message
+        error_msg.style.display = "block"
+        print("Access Denied")
 
-
+def process_data(event):
+    # Your existing doubling logic
+    user_input = document.querySelector("#user_num").value
+    if user_input:
+        result = int(user_input) * 2
+        document.querySelector("#display_area").innerText = f"Result: {result}"
