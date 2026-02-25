@@ -5,7 +5,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* 2. THE CUSTOM "SIT" BLUE COLORS */
+
 :root {
     --sit-blue: #1a73e8;
     --sit-dark: #1557b0;
